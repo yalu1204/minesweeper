@@ -1,0 +1,140 @@
+[user information input]
+git config --global user.name "(name)"
+git config --global user.email "(email)"
+
+[user information ouput]
+git config --global user.name
+git config --global user.email
+
+[기본 branch_name 변경]
+git config --global init.defaultBranch (branch_name)
+
+[git 관리 시작]
+git init
+
+[현재 git 상태 출력]
+git status
+
+[git이 관리하지 않음]
+.gitignore폴터 생성
+자료를 .gitignore폴더에 넣음.
+
+[file 하나 add]
+git add (file_name)
+
+[file 모두 add]
+git add .
+
+[commit하기]
+git commit
+
+[commit message 함께 작성하기]
+git commit -m "(message)"
+
+[add와 commit 한꺼번에] - new file이 있으면 안됨.
+git commit -am "(message)"
+
+[branch 내 log보기]
+git log
+
+[여러 branch의 내역 편리하게 보기]
+git log --all --decorate --oneline --graph
+
+[reset : 원하는 시점으로 돌아간 뒤 이후 내역들을 지움]
+git reset --hard (돌아갈 commit 해시)
+
+[revert : 되돌리기 원하는 시점의 commit 거꾸로 실행]
+git revert (되돌릴 commit 해시)
+
+[commit해버리지 않고 revert하기]
+git revert --no-commit (되돌릴  commit 해시)
+
+[branch 생성]
+git branch (branch_name)
+
+[branch 목록 확인]
+git branch
+
+[branch로 이동]
+git switch (branch_name)
+
+[branch 생성과 동시에 이동하기]
+git switch -c (branch_name)
+
+[branch 삭제하기]
+git branch -d (삭제할 branch_name)
+
+[branch 강제 삭제하기]
+git branch -D (강제삭제할 branch_name)
+
+[branch 이름 바꾸기]
+git branch -m (기존 branch_name) (새 branch_name)
+
+[merge : 두 branch를 한 commit에 이어붙입니다.]
+git merge (branch_name)
+    merge는 reset으로 되돌리기 가능
+    merge도 하나의 commit
+    merge하기 전 해당 branch의 마지막 시점으로
+
+[rebase : branch 다른 branch에 이어붙입니다.]
+    git rebase (branch_name)
+
+branch 간 conflict : file의 같은 위치에 다른 내용이 입력된 상황
+git merge (conflict-1)
+git merge (conflict-2)
+[당장 conflict 해결이 어려울 경우 아래 명령어로 merge 중단]
+git merge --abort
+
+
+[로컬의 Git 저장소에 원격 저장소로의 연결 추가]
+git remote add origin (원격 저장소 주소) 
+
+[GitHub 권장 - 기본 브랜치명을 main으로]
+git branch -M main
+
+[로컬 저장소의 커밋 내역들 원격으로 push(업로드)]
+git push -u origin main
+
+[연결된 원격저장소]
+git remote
+
+[연결된 원격 저장소의 자세한 정보(주소)]
+git remote -v
+
+[원격 지우기 (로컬 프로젝트와의 연결만 없애는 것. GitHub의 레포지토리는 지워지지 않음)]
+git remote remove (origin 등 원격 이름)
+
+[GitHub에서 프로젝트 다운받기]
+1. 다운로드하고자 하는 폴더로 이동
+2. 우클릭 - 더 많은 옵션 표시 - Git Bash Here
+3. (열린 Git Bash에서) git clone (원격 저장소 주소)
+
+[원격으로 local을 push]
+git push
+- 이미 git push -u origin main으로 대상 원격 브랜치가 지정되었기 때문에 가능
+- push하려면 원격의 최신 commit을 적용할것. - Git은 같은 파일의 같은 부분에 양쪽에서 수정사항이 있을 때 이를 충돌로 인식
+- 만약 최신이 아니라면?
+    [merge 방식]
+    git pull --no-rebase
+    [rebase 방식]
+    git pull --rebase
+
+
+[원격에서 local로 pull]
+git pull
+- 이미 git push -u origin main으로 대상 원격 브랜치가 지정되었기 때문에 가능
+
+[원격의 브랜치 명시 및 기본설정]
+git push -u origin from-local
+
+[로컬과 원격의 브랜치들 확인]
+git branch --all
+
+[원격의 변경사항 확인]
+git fetch
+
+[아래 명령어로 로컬에 같은 이름의 브랜치를 생성하여 연결하고 switch]
+git switch -t origin/from-remote
+
+[원격의 브랜치 삭제]
+git push (원격 이름) --delete (원격의 브랜치명)
