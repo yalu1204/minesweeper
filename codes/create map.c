@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <windows.h>
 #pragma warning(disable : 4996)
 
 int map[3000][3000], minenumber, xsize, ysize;
@@ -42,6 +43,7 @@ void PrintMine()
 }
 int main()
 {
+	system("cls");
 	printf("mine number : ");
 	scanf("%d", &minenumber);
 	printf("size (x , y) : ");
@@ -53,7 +55,7 @@ int main()
 	}
 	SetMine();
 	PrintMine();
-	printf("\n");
+	system("cls");
 	CreateMine();
 	PrintMine();
 }
